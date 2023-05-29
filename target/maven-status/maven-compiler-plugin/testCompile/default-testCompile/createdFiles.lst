@@ -1,0 +1,7 @@
+team12\pages\AutomationExcercisePage.class
+team12\stepdefinitions\AutomationexcerciseStepDefinition.class
+team12\utilities\ConfigReader.class
+team12\utilities\ReusableMethods.class
+team12\runners\Runners.class
+team12\utilities\Driver.class
+team12\utilities\ExcelUtils.class
