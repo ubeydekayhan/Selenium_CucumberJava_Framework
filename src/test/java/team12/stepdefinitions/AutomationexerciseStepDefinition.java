@@ -138,6 +138,7 @@ public class AutomationexerciseStepDefinition {
         automationExercisePage = new AutomationExercisePage();
         //automationExercisePage.continueButton.click();
         //automationExercisePage.reklamiKapat.click();
+        //yorum
         automationExercisePage.delete.click();
         //Driver.getDriver().switchTo().alert().dismiss();
 
