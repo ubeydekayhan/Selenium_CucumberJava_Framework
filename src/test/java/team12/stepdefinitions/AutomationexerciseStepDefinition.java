@@ -86,7 +86,6 @@ public class AutomationexerciseStepDefinition {
     public void kullanici_ayrintili_bilgileri_doldurur() {
         faker = new Faker();
         automationExercisePage = new AutomationExercisePage();
-
         String firstName = faker.name().firstName();
         String lastname = faker.name().lastName();
         String company = faker.company().toString();
@@ -114,15 +113,9 @@ public class AutomationexerciseStepDefinition {
     @Given("Kullanici_Create_Account_butonuna_tiklar")
     public void kullanici_create_account_butonuna_tiklar() {
         automationExercisePage = new AutomationExercisePage();
-        automationExercisePage.createAccount.click();
-        ReusableMethods.elementToBeClickable(automationExercisePage.createAccount);
+        ReusableMethods.click(automationExercisePage.createAccount);
 
-        //automationExercisePage.createAccount.click();
-       // Driver.getDriver().switchTo().frame("aswift_6");
-       // Driver.getDriver().switchTo().defaultContent();
-      //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
-      //
-      //wait.until(ExpectedConditions.elementToBeClickable(automationExercisePage.createAccount));
+
     }
 
     @Given("Kullanici_Account_Created_yazisinin_Gorundugunu_Dogrular")
@@ -139,8 +132,8 @@ public class AutomationexerciseStepDefinition {
         //automationExercisePage.continueButton.click();
         //automationExercisePage.reklamiKapat.click();
         //yorum
-        automationExercisePage.delete.click();
-        //Driver.getDriver().switchTo().alert().dismiss();
+        ReusableMethods.click(automationExercisePage.delete);
+
 
 
     }
@@ -188,4 +181,5 @@ public class AutomationexerciseStepDefinition {
         automationExercisePage.continueButton.click();
 
     }
+
 }
