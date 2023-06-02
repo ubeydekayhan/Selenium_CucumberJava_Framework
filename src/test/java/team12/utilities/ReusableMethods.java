@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -109,6 +110,24 @@ public class ReusableMethods {
 
     }
 
+    public static ExpectedCondition<WebElement> elementToBeClickable(final WebElement element) {
+        return new ExpectedCondition<WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                WebElement visibleElement = (WebElement)ExpectedConditions.visibilityOf(element).apply(driver);
+
+                try {
+                    return visibleElement != null && visibleElement.isEnabled() ? visibleElement : null;
+                } catch (StaleElementReferenceException var4) {
+                    return null;
+                }
+            }
+
+            public String toString() {
+                return "element to be clickable: " + element;
+            }
+        };
+    }
+
     //Tüm Sayfa ScreenShot
     public static void tumSayfaResmi(String name) {
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
@@ -200,4 +219,5 @@ public class ReusableMethods {
         String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
         System.out.println("Attribute Value: = " + attribute_Value);
     }
+
 }
